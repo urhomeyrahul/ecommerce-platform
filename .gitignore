@@ -1,0 +1,70 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+############ specific my created files ############
+
+dev.rahul.instructorApp/dev.rahul.instructorApp/src/main/resources/META-INF/additional-spring-configuration-metadata.json
+
+
+# Maven/Gradle build output
+target/
+out/
+build/
+
+# Dependency caches
+.m2/repository/
+
+# Generated files
+*.class
+
+# Generated documentation
+**/javadoc/
+
+# Spring Boot specific
+dependency-reduced-pom.xml
+
+# Git hooks
+.git-hooks/
+
+mvnw
+mvnw.cmd
+
+
+node_modules/
+.env
+
+package-lock.json
+package.json
