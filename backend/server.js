@@ -2,10 +2,12 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const userRoutes = require("./routes/userRoutes.js");
+const connectDB = require("./config/db");
 const productRoutes = require("./routes/productRoutes.js");
 const cartRoutes = require("./routes/cartRoutes.js");
 
 dotenv.config();
+connectDB();
 
 const app = express();
 app.use(express.json());
@@ -19,7 +21,9 @@ app.use((err, req, res, next) => {
     res.status(500).json({ message: err.message });
 });
 
-const PORT = process.env.PORT || 5000;
+app.use(cors());
+
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

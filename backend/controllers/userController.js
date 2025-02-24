@@ -6,18 +6,18 @@ const RegisterUser = async (req, res) => {
         const { name, email, password } = req.body;
 
         const userExists = await User.findOne({ email });
-        if (userExists) { return res.status(400).json({ message: "User alredady exists" }) }
+        if (userExists) { return res.status(400).json({ message: "User already exists" }) }
 
-        const user = await User.create({
+        const newUser = await User.create({
             name, email, password
         })
 
-        if (user) {
+        if (newUser) {
             res.status(201).json({
-                _id: user.id,
-                name: user.name,
-                isAdmin: user.isAdmin,
-                token: generateToken(user),
+                _id: newUser.id,
+                name: newUser.name,
+                isAdmin: newUser.isAdmin,
+                token: generateToken(newUser),
             })
         }
         else {
@@ -32,7 +32,7 @@ const RegisterUser = async (req, res) => {
 const LoginUser = async (req, res) => {
 
     const { email, password } = req.body;
-    const userExists = await User.findOne({ email });
+    const user = await User.findOne({ email });
     if (user && (await user.matchpassword(password))) {
         res.json({
             _id: user.id,

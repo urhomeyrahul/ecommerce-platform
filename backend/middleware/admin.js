@@ -5,4 +5,4 @@ const admin = async (req, res, next) => {
     else res.status(401).json({ message: "Not authorized as user" });
 }
 
-module.exports = admin;
+module.exports = { admin };
